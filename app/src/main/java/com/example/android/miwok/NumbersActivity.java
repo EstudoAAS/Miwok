@@ -20,37 +20,23 @@ public class NumbersActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_numbers);
 
-        ArrayList<String> words = new ArrayList<String>();
-        words.add("one");
-        words.add("two");
-        words.add("three");
-        words.add("four");
-        words.add("five");
-        words.add("six");
-        words.add("seven");
-        words.add("eight");
-        words.add("nine");
-        words.add("ten");
+        ArrayList<Word> words = new ArrayList<Word>();
+        words.add(new Word("one","lutti"));
+        words.add(new Word("two","otiiko"));
+        words.add(new Word("three","tolookosu"));
+        words.add(new Word("four","oyyisa"));
+        words.add(new Word("five","massokka"));
+        words.add(new Word("six","temmokka"));
+        words.add(new Word("seven","kenekaku"));
+        words.add(new Word("eight","kawinta"));
+        words.add(new Word("nine","wo'e"));
+        words.add(new Word("ten","na'aacha"));
 
-        ArrayAdapter<String> itemsAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, words);
+        WordAdapter adapter = new WordAdapter(this, words);
 
         ListView listView = (ListView) findViewById(R.id.list);
 
-        listView.setAdapter(itemsAdapter);
+        listView.setAdapter(adapter);
 
-        /*LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
-        for(int index = 0; index < words.size(); index++){
-            TextView wordView = new TextView(this);
-            wordView.setText(words.get(index));
-            rootView.addView(wordView);
-        }*/
-        
-        /*LinearLayout rootView = (LinearLayout) findViewById(R.id.rootView);
-        ArrayList<TextView> wordsArray = new ArrayList<>();
-        for(int i = 0; i < words.size(); i++) {
-            wordsArray.add(new TextView(this));
-            wordsArray.get(i).setText(words.get(i));
-            rootView.addView(wordsArray.get(i));
-        }*/
     }
 }
